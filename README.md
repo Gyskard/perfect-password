@@ -5,6 +5,7 @@ Powerful & Simple Generator Password Website
 ## Built With
 
 * [jQuery](https://jquery.com/) - JavaScript library
+* [Bootstrap](https://letsencrypt.org/) - Toolkit for developing with HTML, CSS, and JS
 * [Let's Encrypt](https://letsencrypt.org/) - SSL/TLS Certificates
 
 ## Authors

@@ -1,6 +1,6 @@
 # Perfect Password
 
-Powerful & Simple Generator Password
+Powerful & Simple Generator Password Website
 
 ## Built With
 

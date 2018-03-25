@@ -1,3 +1,9 @@
+/*Affichage d'une alerte si le navigateur est Internet Explorer*/
+
+/**
+ * @return {number}
+ */
+
 function GetIEVersion() {
     var sAgent = window.navigator.userAgent;
     var Idx = sAgent.indexOf("MSIE");
@@ -13,6 +19,3 @@ function GetIEVersion() {
 
 if (GetIEVersion() > 0)
     alert("Votre naviguateur (Internet Explorer " + GetIEVersion() + ") est obsolète, aucune compatibilité n'est garantie sur ce site.");
-
-
-

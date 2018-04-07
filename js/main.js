@@ -15,7 +15,7 @@ $('#but1').click(function () {
                 type : 'GET',
                 dataType : 'html',
                 success : function(html) {
-                    $(html).appendTo("body");
+                    $(html).appendTo("body").addClass('animated fadeInUp');
                 }
             });
         }

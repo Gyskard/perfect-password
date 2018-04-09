@@ -3,8 +3,9 @@
   #################*/
 
 //initilisation de variables diverses
-var password, alphaMin, alphaMaj, dec, nbrSpec1, nbrSpec2, nbrSpec3, tableau, niveau, scoreRatio;
+var password, alphaMin, alphaMaj, dec, nbrSpec1, nbrSpec2, nbrSpec3, niveau, scoreRatio, bits;
 var nbrCaract, score = 0;
+var tableau = [];
 //variable pour savoir si l'animation de remontée a été effectué ou non
 var toggle1 = toggle2 = false;
 //application d'un nombre de bits minimum par défaut (niveau de force moyen)
@@ -67,6 +68,20 @@ function modif_bar() {
     }
 }
 
+/*#########################################################################################################
+  ### Affichage d'une alerte en haut à droite de l'écran d'une certaine couleur avec un certain message ###
+  #########################################################################################################*/
+
+function alertInfo(message, type) {
+    $('<div>' + message + '</div>')
+        .addClass('alert alert-' + type)
+        .css({"position":"absolute", "right":"10px", "top":"10px", "opacity":"0"})
+        .appendTo($('body'))
+        .animate({opacity: "1"}, {duration: 'slow'}, setTimeout(function() {
+            $('.alert').animate({opacity: "0"}, {duration: 'speed'})
+        }, 1500))
+}
+
 /*####################################################################################
   ### Transformation du bouton "créer un nouveau mot de passe" en bouton principal ###
   ### et du bouton "guide" en bouton secondaire si ce n'est pas déjà le cas        ###
@@ -81,7 +96,8 @@ $('#but1').click(function () {
         //mise de l'autre bouton en secondaire
         $('#but2').removeClass('btn-primary').addClass('btn-secondary');
         //animation de remontée
-        animate_menu()
+        animate_menu();
+        $('body').load('./data/generator.html')
     }
 });
 
@@ -113,13 +129,7 @@ $('#copy').click(function () {
     //mise dans le presse-papier
     document.execCommand('copy');
     //alerte indiquant la copie dans le presse-papier
-    $('<div>Copié dans le presse-papier!</div>')
-        .addClass('alert alert-warning')
-        .css({"position":"absolute", "right":"10px", "top":"10px", "opacity":"0"})
-        .appendTo($('body'))
-        .animate({opacity: "1"}, {duration: 'slow'}, setTimeout(function() {
-            $('.alert').animate({opacity: "0"}, {duration: 'speed'})
-        }, 1200))
+    alertInfo("Copier dans le presse-papier!", "warning")
 });
 
 /*###########################################################################################
@@ -145,21 +155,20 @@ $('#niveauForce').change(function () {
     }
     if (niveau === "5") {
         if (toggle2 === false) {
-            $('<form id="customCaractere"><div class="input-group mb-3"><input type="text" class="form-control">' +
-            '</div></form>').appendTo($('#choixForce'));
+            $('#loadCustom').addClass('col').css({'opacity': '1', 'position': 'static'});
             toggle2 = true
         }
     }
     else if (toggle2 === true) {
-        $('#customCaractere').remove();
+        $('#loadCustom').removeClass('col').css({'opacity':'0', 'position':'absolute'});
         toggle2 = false
     }
     modif_bar()
 });
 
-/*#####################################################################################################
-  #### Modification de la progress bar à la détection d'un changement dans le champ du mot de passe ###
-  #####################################################################################################*/
+/*####################################################################################################
+  ### Modification de la progress bar à la détection d'un changement dans le champ du mot de passe ###
+  ####################################################################################################*/
 
 $('#to-copy').change(function () {
     //récupération du mot de passe
@@ -205,5 +214,19 @@ $('#to-copy').change(function () {
             nbrCaract += 15
         }
     });
+    modif_bar()
+});
+
+$('#choixBits').change(function () {
+    bits = $(this).val().toString();
+    if (bits.indexOf('.') !== -1) {
+        alertInfo("Le nombre de bits doit être un entier!", "danger")
+    }
+    else if (bits <= 0) {
+        alertInfo("Le nombre de bits doit être supérieur à 0!", "danger")
+    }
+    else {
+        scoreMax = bits
+    }
     modif_bar()
 });

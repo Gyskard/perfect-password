@@ -6,7 +6,7 @@
 var password, alphaMin, alphaMaj, dec, nbrSpec1, nbrSpec2, nbrSpec3, tableau, niveau, scoreRatio;
 var nbrCaract, score = 0;
 //variable pour savoir si l'animation de remontée a été effectué ou non
-var toggle = false;
+var toggle1 = toggle2 = false;
 //application d'un nombre de bits minimum par défaut (niveau de force moyen)
 var scoreMax = 85;
 //liste alphabétique
@@ -25,10 +25,9 @@ var nbrSpec3List = ["é", "è", "ë", "à", "â", "ç"];
   ####################################################################################*/
 
 function animate_menu() {
-    if (toggle === false) {
+    if (toggle1 === false) {
         $('#menu').animate({marginTop:'10em'},500,'swing');
-        $('<hr>').appendTo($('section:first')).css("width", "20em");
-        toggle = true;
+        toggle1 = true;
     }
 }
 
@@ -42,10 +41,24 @@ function modif_bar() {
     score = Math.round(Math.log(Math.pow(nbrCaract, tableau.length)) / Math.log(2));
     //transformation du calcul en %
     scoreRatio = score * (100 / scoreMax);
+    if (scoreRatio <= 33) {
+        $('#bar-force') .css('width', scoreRatio + '%')
+                        .removeClass('bg-warning bg-success')
+                        .addClass('bg-danger')
+    }
+    else if (scoreRatio <= 66) {
+        $('#bar-force') .css('width', scoreRatio + '%')
+            .removeClass('bg-danger bg-success')
+            .addClass('bg-warning')
+    }
+    else if (scoreRatio > 66) {
+        $('#bar-force') .css('width', scoreRatio + '%')
+            .removeClass('bg-danger bg-warning')
+            .addClass('bg-success')
+    }
     //application du % sur la barre
-    $('#bar-force').css('width', scoreRatio + '%');
     //non visualisation du nombre de bits (pas assez de place)
-    if (scoreRatio < 10) {
+    if (scoreRatio < 3) {
         $('#bits').text('')
     }
     //visualisation du nombre de bits
@@ -129,6 +142,17 @@ $('#niveauForce').change(function () {
     }
     if (niveau === "4") {
         scoreMax = 130
+    }
+    if (niveau === "5") {
+        if (toggle2 === false) {
+            $('<form id="customCaractere"><div class="input-group mb-3"><input type="text" class="form-control">' +
+            '</div></form>').appendTo($('#choixForce'));
+            toggle2 = true
+        }
+    }
+    else if (toggle2 === true) {
+        $('#customCaractere').remove();
+        toggle2 = false
     }
     modif_bar()
 });

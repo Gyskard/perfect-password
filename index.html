@@ -24,15 +24,16 @@
             </div>
         </section>
         <section class="container" style="margin-top: -3em">
-            <div class="input-group">
+            <div class="input-group" id="choixForce">
                 <div class="input-group-prepend mb-3">
                     <label class="input-group-text" for="niveauForce">Niveau de force</label>
                 </div>
                 <select class="custom-select" id="niveauForce">
                     <option value="1">Très faible (49 bits)</option>
-                    <option value="2">Faible (65-78 bits)</option>
+                    <option value="2">Faible (78 bits)</option>
                     <option selected value="3">Moyen (85 bits)</option>
-                    <option value="4">Fort (104-130 bits)</option>
+                    <option value="4">Fort (130 bits)</option>
+                    <option value="5">Personnalisé</option>
                 </select>
             </div>
             <div class="input-group mb-3" id="password">
@@ -47,6 +48,12 @@
             </div>
             <div class="progress">
                 <div class="progress-bar" id="bar-force" role="progressbar" style="width: 0;"><a id="bits"></a></div>
+            </div>
+        </section>
+        <section class="container mt-3">
+            <div>
+                <a href="#" class="btn btn-dark my-2" id="custom">Mot de passe personnalisé</a>
+                <a href="#" class="btn btn-dark my-2" id="random">Génération aléatoire</a>
             </div>
         </section>
         <!--

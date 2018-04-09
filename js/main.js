@@ -3,7 +3,8 @@
   #################*/
 
 //initilisation de variables diverses
-var password, alphaMin, alphaMaj, dec, nbrSpec1, nbrSpec2, nbrSpec3, nbrCaract, score, tableau, niveau, scoreRatio;
+var password, alphaMin, alphaMaj, dec, nbrSpec1, nbrSpec2, nbrSpec3, tableau, niveau, scoreRatio;
+var nbrCaract, score = 0;
 //variable pour savoir si l'animation de remontée a été effectué ou non
 var toggle = false;
 //application d'un nombre de bits minimum par défaut (niveau de force moyen)
@@ -28,6 +29,28 @@ function animate_menu() {
         $('#menu').animate({marginTop:'10em'},500,'swing');
         $('<hr>').appendTo($('section:first')).css("width", "20em");
         toggle = true;
+    }
+}
+
+/*############################################################################
+  ### Modification de la progress bar en fonction de l'entropie du mot de  ###
+  ### passe par rapport à la valeur maximal demandé par le niveau de force ###
+  ############################################################################*/
+
+function modif_bar() {
+    //calcul de l'entropie en bits
+    score = Math.round(Math.log(Math.pow(nbrCaract, tableau.length)) / Math.log(2));
+    //transformation du calcul en %
+    scoreRatio = score * (100 / scoreMax);
+    //application du % sur la barre
+    $('#bar-force').css('width', scoreRatio + '%');
+    //non visualisation du nombre de bits (pas assez de place)
+    if (scoreRatio < 10) {
+        $('#bits').text('')
+    }
+    //visualisation du nombre de bits
+    else {
+        $('#bits').text(score + ' bits')
     }
 }
 
@@ -107,6 +130,7 @@ $('#niveauForce').change(function () {
     if (niveau === "4") {
         scoreMax = 130
     }
+    modif_bar()
 });
 
 /*#####################################################################################################
@@ -157,18 +181,5 @@ $('#to-copy').change(function () {
             nbrCaract += 15
         }
     });
-    //calcul de l'entropie en bits
-    score = Math.round(Math.log(Math.pow(nbrCaract, tableau.length)) / Math.log(2));
-    //transformation du calcul en %
-    scoreRatio = score * (100 / scoreMax);
-    //application du % sur la barre
-    $('#bar-force').css('width', scoreRatio + '%');
-    //non visualisation du nombre de bits (pas assez de place)
-    if (scoreRatio < 10) {
-        $('#bits').text('')
-    }
-    //visualisation du nombre de bits
-    else {
-        $('#bits').text(score + ' bits')
-    }
+    modif_bar()
 });

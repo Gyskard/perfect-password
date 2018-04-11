@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="35249b58-5b40-4817-9a2a-232431b9cd37" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/generator.html" beforeDir="false" afterPath="$PROJECT_DIR$/data/generator.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/main.js" afterDir="false" />
-    </list>
+    <list default="true" id="35249b58-5b40-4817-9a2a-232431b9cd37" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -34,8 +29,8 @@
       <file leaf-file-name="generator.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data/generator.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="17" column="18" lean-forward="true" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
+            <state relative-caret-position="462">
+              <caret line="21" column="19" lean-forward="true" selection-start-line="21" selection-start-column="19" selection-end-line="21" selection-end-column="19" />
               <folding>
                 <element signature="n#style#0;n#div#1;n#div#0;n#section#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#2;n#section#0;n#!!top" expanded="true" />
@@ -151,10 +146,11 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="753" />
-    <option name="width" value="1174" />
-    <option name="height" value="1047" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="93" />
+    <option name="y" value="183" />
+    <option name="width" value="1217" />
+    <option name="height" value="920" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -232,7 +228,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="C:/Program Files/Git/bin/git.exe" />
+    <property name="last_opened_file_path" value="C:/wamp64/www/perfect-password" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.prettier" value="true" />
     <property name="node.js.path.for.package.prettier" value="project" />
@@ -275,15 +271,15 @@
       <workItem from="1523182930753" duration="26682000" />
       <workItem from="1523265377711" duration="4302000" />
       <workItem from="1523269966142" duration="6840000" />
-      <workItem from="1523285667963" duration="13473000" />
+      <workItem from="1523285667963" duration="13813000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="88475000" />
+    <option name="totallyTimeSpent" value="88815000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="753" y="0" width="1174" height="1047" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.61786866" />
@@ -660,23 +656,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/generator.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="17" column="18" lean-forward="true" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
-          <folding>
-            <element signature="n#style#0;n#div#1;n#div#0;n#section#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#2;n#section#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="572">
           <caret line="26" column="32" lean-forward="true" selection-start-line="26" selection-start-column="32" selection-end-line="26" selection-end-column="32" />
           <folding>
             <element signature="n#style#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/generator.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="21" column="19" lean-forward="true" selection-start-line="21" selection-start-column="19" selection-end-line="21" selection-end-column="19" />
+          <folding>
+            <element signature="n#style#0;n#div#1;n#div#0;n#section#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#2;n#section#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>

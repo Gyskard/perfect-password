@@ -4,7 +4,7 @@ Powerful & Simple Generator Password Website
 
 ## Description
 
-Random password generator with selection of the number of characters and password entropy (solidity). A description (in French) in several sections is available: presentation, explanation, guide and legal information. 
+Random password generator with selection of the number of characters and password entropy. A description in several sections is available: presentation, explanation, guide and legal information. 
 
 ## Built With
 

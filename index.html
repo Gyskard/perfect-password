@@ -1,34 +1,199 @@
+<!--    Created and owned by Thomas Margueritat (CC BY-ND 4.0 License)
+        The webmaster's mail is thomas@marguerit.at
+        Icon of copy by Font Awesome (CC BY 4.0 License)	-->
+
 <!DOCTYPE html>
     <html lang="fr">
     <head>
-        <!-- META -->
+        <title>Générateur de mot de passe : Perfect Password</title>
         <meta charset="UTF-8">
-        <!-- TITLE -->
-        <title>Perfect-password</title>
-        <!-- CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <meta name="description" content="Outil en ligne gratuit pour générer des mots de passe solides." />
+        <meta name="author" content="Thomas Margueritat" />
+        <meta name="keywords" content="mot de passe, password, générateur de mot de passe, password generator, generer mot de passe, générer mot de passe, entropie, entropie mot de passe, Thomas Margueritat, force, how secure is my password, force, force mot de passe, perfect-password, générateur aléatoire, random generator" />
+        <link rel="icon" href="favicon.ico" />
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-120251624-1"></script>
+		<script>
+			window.dataLayer = wind ow.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+			gtag('config', 'UA-120251624-1');
+		</script>
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/main.min.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
         <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
-        <style>
-            #copy:hover {
-                cursor: pointer;
-            }
-        </style>
     </head>
-    <body class="text-center" style="font-family: 'PT Sans', sans-serif">
-        <section class="container pl-0 pr-0" id="menu" style="margin-top: 50vh; transform: translateY(-50%)">
-            <div>
-                <h1>Perfect Password</h1>
-                <h2 style="margin-top: -0.5em"><small class="text-muted">Générateur de mot de passe</small></h2>
-                <a href="#" class="btn btn-secondary my-2" id="but1">Créer un nouveau mot de passe</a>
-                <a href="#" class="btn btn-secondary my-2" id="but2">Guide</a>
+    <body class="bg-light">
+        <header class="container-fluid jumbotron text-center p-2">
+            <h1>Perfect Password</h1>
+            <h2><small class="text-muted">Générateur de mot de passe</small></h2>
+        </header>
+        <section class="container mt-4">
+            <div class="row separator" id="sep">
+                <div class="col-md-6 pr-5" id="col1">
+                    <form class="py-2">
+                        <div class="form-group">
+                            <label for="cT">Informations</label>
+                            <select class="custom-select mr-sm-2" id="cT">
+                                <option selected value="presentation">Présentation</option>
+                                <option value="explications">Explications</option>
+                                <option value="guide">Guide</option>
+                                <option value="info">Informations légales</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <div class="row" >
+                                <div class="col">
+                                    <label for="cF">Entropie</label>
+                                    <select class="form-control" id="cF">
+                                        <option value="49">Très faible (49 bits)</option>
+                                        <option value="78">Faible (78 bits)</option>
+                                        <option value="85" selected>Moyen (85 bits)</option>
+                                        <option value="130">Fort (130 bits)</option>
+                                        <option value="c">Personnalisé</option>
+                                    </select>
+                                </div>
+                                <div id="cD"></div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="nC">Nombre de caractères <span id="tNC" class="badge badge-secondary">14</span></label>
+                            <input type="range" class="form-control-range" value="14" min="4" max="50" step="1" id="nC">
+                        </div>
+                        <div class="form-group">
+                            <label>Type de symboles</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="az" id="s1" checked>
+                                <label class="form-check-label" for="s1">
+                                    a-z
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="AZ" id="s2" checked>
+                                <label class="form-check-label" for="s2">
+                                    A-Z
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="123" id="s3" checked>
+                                <label class="form-check-label" for="s3">
+                                    123456789
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="!?" id="s4" checked>
+                                <label class="form-check-label" for="s4">
+                                    !?,;.:%&*"'{}()[]_|/\#@=+-~&lt;>
+                                </label>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="mt-3 text-center">
+                        <button type="button" class="btn btn-secondary">Générer un mot de passe</button>
+                    </div>
+                    <div class="mt-4" id="pswZone">
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" id="tC" placeholder="Mot de passe">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    <a id="c">
+                                        <i class="fas fa-copy"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar"><a id="b"></a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <hr id="hs">
+                    <div class="pl-4 py-2" id="col2">
+                        <div class="ml-2 mr-2" id="tableau">
+                            <div id="presentation" class="tI">
+                            	<p>
+                        			Perfect-Password, <strong>générateur de mots de passe gratuit</strong> pour générer des mots de passe solides avec calcul de l'<mark>entropie</mark>.
+                            	</p>
+                                <hr>
+                                <p>
+                                    L'<mark>entropie</mark> correspond à la complexité d'un mot de passe.
+                                </p>
+                                <p>
+                                    Le <mark>nombre de caractères</mark> et le <mark>type de symboles</mark> sont les deux paramètres nécessaires pour générer un nouveau de mot passe.
+                                </p>
+                                <p>
+                                    Vous pouvez <b>générer un nouveau de mot de passe</b> en cliquant sur le bouton <i>Générer un mot de passe</i>, la barre de progression située en dessous indique le <mark>niveau de force</mark> de votre mot de passe par rapport au niveau paramétré.
+                                </p>
+                            </div>
+                            <div id="explications" class="tI">
+                                <h4>Entropie</h4>
+                                <p>
+                                    L'<mark>entropie</mark> d'un mot de passe représente sa complexité, plus l'<mark>entropie</mark> d'un mot de passe est grande, plus la difficulté pour un attaquant de trouver ledit mot de passe est grande. On détermine l'<mark>entropie</mark> avec <b>log(N<sup>L</sup>) / log(2)</b> où L est le nombre de caractères constituant le mot de passe et N est le nombre de caractères différents possibles, on obtient N en regroupant chaque caractère du mot de passe dans quatre groupes de caractères: les lettres minuscules (26 possibilités), les lettres majuscules (26 possibilités), les nombres (10 possibilités) et les caractères spéciaux (29 possibilités).
+                                </p>
+                                <hr>
+                                <h4>Attaques de mot de passe</h4>
+                                <dl class="row">
+                                    <dt class="col-sm-3">Attaque par dictionnaire</dt>
+                                    <dd class="col-sm-9">Consiste à essayer une liste de combinaisons très répandues dans les mots de passe simplistes, par exemple des expressions usuelles (123, password, azerty...) ou des dates, prénoms, noms d'animaux... etc.</dd>
+                                    <dt class="col-sm-3">Attaque par force brute</dt>
+                                    <dd class="col-sm-9">Consiste à essayer toutes les combinaisons possibles d'un mot de passe jusqu'à trouver la combinaison correcte.</dd>
+                                </dl>
+                            </div>
+                            <div id="guide" class="tI">
+                                <h4>Créer un mot de passe</h4>
+                                <ul>
+                                    <li>La longueur est plus importante que la complexité.</li>
+                                    <li>Ne pas utiliser des expressions usuelles (123, azerty... etc).</li>
+                                    <li>Ne pas utiliser des mots du dictionnaire, nom, prénom, date... etc.</li>
+                                    <li>Vous pouvez transformer des mots existant pour faciliter la mémorisation (exemple: baleine => b@lEiN3).</li>
+                                    <li>Adapter la solidité de votre mot de passe par rapport à l'importance de ce qu'il protège.</li>
+                                </ul>
+                                <hr>
+                                <h4>Stocker un mot de passe</h4>
+                                <ul>
+                                    <li>Utiliser un coffre-fort numérique.</li>
+                                    <li>N'écrivez pas vos mots de passe sur une feuille de papier.</li>
+                                    <li>Ne pas stocker vos mots de passe en clair sur votre ordinateur.</li>
+                                </ul>
+                                <hr>
+                                <h4>Les bonnes pratiques</h4>
+                                <ul>
+                                    <li>Idéalement, il faut un mot de passe unique pour chaque site et changé régulièrement.</li>
+                                    <li>Ne partager votre mot de passe avec personne.</li>
+                                    <li>N'indiquer aucune information personnelle dans votre mot de passe.</li>
+                                    <li>Utiliser les systèmes de double authentification si on vous le propose.</li>
+                                </ul>
+                            </div>
+                            <div id="info" class="tI">
+                                <h4>Contact</h4>
+                                <dl class="row">
+                                    <dt class="col-sm-4">Prénom / Nom</dt>
+                                    <dd class="col-sm-8">Thomas MARGUERITAT</dd>
+                                    <dt class="col-sm-4">Site internet</dt>
+                                    <dd class="col-sm-8"><a href="https://marguerit.at/">marguerit.at</a></dd>
+                                    <dt class="col-sm-4">Mail</dt>
+                                    <dd class="col-sm-8"><a href="mailto:thomas@marguerit.at">thomas@marguerit.at</a></dd>
+                                </dl>
+                                <hr>
+                                <h4>Licence</h4>
+                                <p>
+                                    Perfect-password.fr - Thomas Margueritat - <a href="https://creativecommons.org/licenses/by-nd/4.0/">CC BY-ND 4.0</a><br />
+                                    Icône - Font Awesome - <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>
+                                </p>
+                                <hr>
+                                <h4>Données</h4>
+                                <p>
+                                	La génération des mots de passe est réalisé en local sur votre appareil, nous ne récupérons pas les mots de passes générées. Nous déclinons toutes responsabilités de vol ou d'attaque d'un mot de passe généré via Perfect-password.fr, de plus nous ne garantissons pas sa résistance face à une attaque.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
-        <section id="first-sec"><div id="first-load"></div></section>
-        <!-- SCRIPT -->
-        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-        <script src="js/noInternetExplorerPlease.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-        <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
-        <script src="js/main.js"></script>
+        <script src="js/jquery-3.3.1.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/main.min.js"></script>
     </body>
 </html>

@@ -2,11 +2,16 @@
 
 Powerful & Simple Generator Password Website
 
+## Description
+
+Random password generator with selection of the number of characters and password entropy. 
+A description in several sections is available: presentation, explanation, guide and legal information. 
+
 ## Built With
 
 * [jQuery](https://jquery.com/) - JavaScript library
 * [Bootstrap](https://letsencrypt.org/) - Toolkit for developing with HTML, CSS, and JS
-* [Let's Encrypt](https://letsencrypt.org/) - SSL/TLS certificates
+* [Font asewome](https://fontawesome.com/) - Font and icon toolkit based on CSS and LESS
 
 ## Authors
 
